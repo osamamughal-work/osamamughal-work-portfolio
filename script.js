@@ -69,7 +69,8 @@ function countUp(el) {
   const t0 = performance.now(), dur = 1600;
   (function tick(t) {
     const p = Math.min((t - t0) / dur, 1);
-    el.textContent = pre + Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString() + suf;
+    const dec = +el.dataset.dec || 0, v = target * (1 - Math.pow(1 - p, 3));
+    el.textContent = pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString()) + suf;
     if (p < 1) requestAnimationFrame(tick);
   })(t0);
 }

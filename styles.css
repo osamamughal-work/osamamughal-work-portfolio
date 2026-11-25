@@ -331,3 +331,25 @@ main,.footer{position:relative;z-index:2}
 .viz-note{font-size:.78rem;color:var(--muted);margin-bottom:30px}
 @media(max-width:1100px){.viz-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.viz-grid{grid-template-columns:1fr}}
+
+.stats-eff{margin-top:16px}
+.stats-eff .stat{background:linear-gradient(160deg,var(--accent-l),var(--card))}
+.stats-note{max-width:1240px;margin:10px auto 0;padding:0 5vw;font-size:.76rem;color:var(--muted)}
+
+/* floating cards sit below the photo so they never cover it */
+.hero-visual{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;align-items:stretch}
+.hero-visual .photo-frame{grid-column:1/-1}
+.hero-visual .float-card{position:relative;inset:auto;left:auto;right:auto;top:auto;bottom:auto;display:flex;flex-direction:column;justify-content:center}
+.fc-1{order:2}.fc-2{order:3}
+.fc-2 b{font-size:1.35rem}
+@media(max-width:960px){.hero-visual{max-width:360px}.fc-1,.fc-2{left:auto;right:auto}}
+
+/* desktop: cards sit in a gutter beside the photo, never over the face */
+@media(min-width:961px){
+  .hero{grid-template-columns:1.05fr .95fr}
+  .hero-visual{display:block;max-width:480px;padding-left:0}
+  .hero-visual .photo-frame{width:68%;margin-left:auto}
+  .hero-visual .float-card{position:absolute;width:38%;inset:auto}
+  .hero-visual .fc-1{left:0;top:16%;bottom:auto;right:auto}
+  .hero-visual .fc-2{left:0;bottom:10%;top:auto;right:auto}
+}
