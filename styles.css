@@ -347,3 +347,13 @@ main,.footer{position:relative;z-index:2}
 .fc-1{order:2}.fc-2{order:3}
 .fc-2 b{font-size:1.35rem}
 @media(max-width:960px){.hero-visual{max-width:360px}.fc-1,.fc-2{left:auto;right:auto}}
+
+/* desktop: cards sit in a gutter beside the photo, never over the face */
+@media(min-width:961px){
+  .hero{grid-template-columns:1.05fr .95fr}
+  .hero-visual{display:block;max-width:480px;padding-left:0}
+  .hero-visual .photo-frame{width:68%;margin-left:auto}
+  .hero-visual .float-card{position:absolute;width:38%;inset:auto}
+  .hero-visual .fc-1{left:0;top:16%;bottom:auto;right:auto}
+  .hero-visual .fc-2{left:0;bottom:10%;top:auto;right:auto}
+}
