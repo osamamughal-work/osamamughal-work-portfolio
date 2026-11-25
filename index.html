@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
 <title>Osama Mughal | Head of Marketing & Telesales</title>
 <meta name="description" content="Osama Mughal: Head of Marketing & Telesales, Digital Marketing & Growth Strategist. 8+ years across creative leadership, performance marketing, brand and telesales.">
 <meta property="og:title" content="Osama Mughal | Marketing & Growth Strategist">
@@ -10,20 +11,22 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="nav">
-  <a class="logo" href="#top">OM<span>.</span></a>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#performance">Performance</a>
-    <a href="#brands">Brands</a>
+  <a class="logo" href="#top" aria-label="Osama Mughal home">OM<span>.</span></a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+    <span></span><span></span>
+  </button>
+  <nav id="primary-nav" aria-label="Main navigation">
+    <a href="#performance">Services</a>
+    <a href="#about">Approach</a>
+    <a href="#projects">Results</a>
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact" class="btn small">Contact</a>
+    <a href="#contact" class="btn small">Let&apos;s talk</a>
   </nav>
 </header>
 
@@ -32,7 +35,7 @@
 <section class="hero">
   <div class="hero-text">
     <p class="eyebrow">Head of Marketing & Telesales</p>
-    <h1>Marketing that closes sales, not just generates clicks.</h1>
+    <h1>Marketing that <span class="accent-word">closes sales</span>, not just generates clicks.</h1>
     <p class="lead">Digital Marketing & Growth Strategist with 8+ years across creative leadership, performance marketing, brand building and telesales. Currently leading the full marketing and telesales function at KPZ Developers.</p>
     <div class="cta">
       <a href="#contact" class="btn">Work with me</a>
@@ -40,9 +43,15 @@
     </div>
   </div>
   <div class="hero-photo">
+    <span class="proof-chip"><strong>PKR 800M+</strong> attributed sales</span>
     <div class="photo-frame">
       <span class="monogram">OM</span>
       <img src="assets/photo.jpg" alt="Osama Mughal" onerror="this.remove()">
+    </div>
+    <div class="proof-card">
+      <span class="proof-label">Kohistan Enclave · case study</span>
+      <strong>20,000+</strong>
+      <span>leads generated</span>
     </div>
   </div>
 </section>
