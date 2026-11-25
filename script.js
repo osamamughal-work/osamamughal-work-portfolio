@@ -9,7 +9,7 @@ const grid = document.getElementById("brandGrid");
 const filters = document.getElementById("filters");
 const search = document.getElementById("brandSearch");
 const countEl = document.getElementById("wallCount");
-let activeSector = "All";
+let activeSector = LOGO_SECTORS[0];
 
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
@@ -25,17 +25,15 @@ function tile(l) {
 function renderWall() {
   const q = search.value.trim().toLowerCase();
   const list = LOGOS.filter(l =>
-    (activeSector === "All" || l.s === activeSector) &&
+    l.s === activeSector &&
     (!q || l.n.toLowerCase().includes(q) || l.s.toLowerCase().includes(q) || (l.t || "").toLowerCase().includes(q)));
   grid.innerHTML = list.length ? list.map(tile).join("") : `<p class="empty">No brands match that search.</p>`;
-  countEl.textContent = (activeSector === "All" && !q)
-    ? `${LOGOS.length} brands across ${LOGO_SECTORS.length} sectors`
-    : `Showing ${list.length} of ${LOGOS.length} brands`;
+  countEl.textContent = `Showing ${list.length} of ${LOGOS.length} brands`;
 }
 
 function renderFilters() {
-  const count = s => s === "All" ? LOGOS.length : LOGOS.filter(l => l.s === s).length;
-  filters.innerHTML = ["All", ...LOGO_SECTORS]
+  const count = s => LOGOS.filter(l => l.s === s).length;
+  filters.innerHTML = LOGO_SECTORS
     .map(s => `<button class="${s === activeSector ? "on" : ""}" data-s="${esc(s)}">${esc(s)}<span>${count(s)}</span></button>`).join("");
 }
 
