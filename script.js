@@ -202,7 +202,7 @@ if (fine && !reduce) {
   const up = document.getElementById("up");
   const tl = document.querySelector(".timeline");
   const steps = document.querySelector(".steps");
-  const fc1 = document.querySelector(".fc-1"), fc2 = document.querySelector(".fc-2"), hero = document.querySelector(".hero");
+  const hero = document.querySelector(".hero");
   const prog = (el, k = .75) => {
     const r = el.getBoundingClientRect();
     return Math.max(0, Math.min(1, (innerHeight * k - r.top) / r.height));
@@ -214,8 +214,6 @@ if (fine && !reduce) {
     if (tl) tl.style.setProperty("--p", (prog(tl) * 100) + "%");
     if (steps) steps.style.setProperty("--p", prog(steps, .85));
     if (!reduce && scrollY < 1200) {
-      fc1.style.setProperty("--p1", (scrollY * -.08) + "px");
-      fc2.style.setProperty("--p2", (scrollY * .06) + "px");
       hero.style.setProperty("--p3", (scrollY * .15) + "px");
     }
   }
