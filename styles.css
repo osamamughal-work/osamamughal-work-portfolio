@@ -53,10 +53,9 @@ ul{list-style:none}
 .proof-chip,.proof-card{position:absolute;z-index:2;background:rgba(255,255,255,.97);border:1px solid rgba(223,228,239,.88);box-shadow:var(--shadow);color:var(--text)}
 .proof-chip{top:7%;left:0;display:flex;align-items:center;gap:7px;padding:11px 15px;border-radius:999px;font-size:.82rem;font-weight:600;white-space:nowrap}
 .proof-chip strong{color:var(--accent);font-size:1rem}
-.proof-card{right:0;bottom:7%;display:flex;flex-direction:column;min-width:220px;padding:16px 19px;border-radius:18px}
+.proof-card{right:0;bottom:7%;display:flex;flex-direction:column;min-width:220px;width:273px;height:126px;padding:16px 19px;border-radius:39px;line-height:1.8;gap:0;margin-top:0}
 .proof-card span{color:var(--muted);font-size:.78rem}
-.proof-card .proof-label{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
-.proof-card strong{font-size:1.7rem;line-height:1.2;letter-spacing:-.04em}
+.proof-card strong{font-size:63px;line-height:1.2;letter-spacing:-.04em;color:#1c3fae}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:none;margin:0;padding:39px max(5vw,calc((100vw - 1120px)/2));background:var(--navy);color:#fff}
 .stat{background:transparent;border:0;border-radius:0;padding:4px 0}

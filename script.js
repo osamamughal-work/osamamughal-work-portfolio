@@ -5,48 +5,7 @@
                f = image file, b = tile background, m = "c" (contain) | "p" (photo/cover)
    To add a brand: drop the image in assets/logos/ and add an entry to logos-data.js.
    ========================================================== */
-const grid = document.getElementById("brandGrid");
-const filters = document.getElementById("filters");
-const search = document.getElementById("brandSearch");
-const countEl = document.getElementById("wallCount");
-let activeSector = LOGO_SECTORS[0];
-
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
-
-function tile(l) {
-  return `<figure class="logo-tile">
-    <div class="logo-box${l.m === "p" ? " photo" : ""}" style="background:${l.b}">
-      <div class="fit"><img src="${l.f}" alt="${esc(l.n)} logo" loading="lazy" width="${l.w}" height="${l.h}"></div>
-    </div>
-    <figcaption><b>${esc(l.n)}</b>${l.t ? `<span>${esc(l.t)}</span>` : ""}</figcaption>
-  </figure>`;
-}
-
-function renderWall() {
-  const q = search.value.trim().toLowerCase();
-  const list = LOGOS.filter(l =>
-    l.s === activeSector &&
-    (!q || l.n.toLowerCase().includes(q) || l.s.toLowerCase().includes(q) || (l.t || "").toLowerCase().includes(q)));
-  grid.innerHTML = list.length ? list.map(tile).join("") : `<p class="empty">No brands match that search.</p>`;
-  countEl.textContent = `Showing ${list.length} of ${LOGOS.length} brands`;
-}
-
-function renderFilters() {
-  const count = s => LOGOS.filter(l => l.s === s).length;
-  filters.innerHTML = LOGO_SECTORS
-    .map(s => `<button class="${s === activeSector ? "on" : ""}" data-s="${esc(s)}">${esc(s)}<span>${count(s)}</span></button>`).join("");
-}
-
-filters.addEventListener("click", e => {
-  const b = e.target.closest("button");
-  if (!b) return;
-  activeSector = b.dataset.s;
-  renderFilters();
-  renderWall();
-});
-search.addEventListener("input", renderWall);
-renderFilters();
-renderWall();
 
 /* Logo marquee: two rows moving in opposite directions */
 (function () {
